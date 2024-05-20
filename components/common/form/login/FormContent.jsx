@@ -1,26 +1,76 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import LoginWithSocial from "./LoginWithSocial";
 
+
 const FormContent = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch('http://167.86.125.178:8083/afrik-connect/api/v1/auth/authenticate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      // Handle the response data
+      console.log('Success:', result);
+
+      // Handle the response data
+      if (result.status === 200) {
+        // Redirect to the OTP page with email and OTP fields
+
+      } else {
+        console.log('Error:', result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
     <div className="form-inner">
       <h3>Se connecter</h3>
 
       {/* <!--Login Form--> */}
-      <form method="post">
+      <form method="post" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Email</label>
-          <input type="email" name="email" placeholder="Email" required />
+          <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         {/* name */}
 
         <div className="form-group">
           <label>Mot de passe</label>
           <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         {/* password */}
