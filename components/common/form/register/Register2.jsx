@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import LoginWithSocial from "./LoginWithSocial";
 import FormContent2 from "./FormContent2";
 import Link from "next/link";
+import FormContent3 from "@/components/common/form/login/FormContent3";
 
 const Register2 = () => {
   return (
@@ -35,7 +36,7 @@ const Register2 = () => {
         {/* End cadidates Form */}
 
         <TabPanel>
-          <FormContent2 />
+          <FormContent3 />
         </TabPanel>
         {/* End Employer Form */}
       </Tabs>
