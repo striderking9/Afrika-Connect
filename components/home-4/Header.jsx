@@ -61,13 +61,19 @@ const Header = () => {
                 data-bs-toggle="modal"
                 data-bs-target="#loginPopupModal"
               >
-                Se connecter / S'inscrire
+                S'identifier
               </a>
               <Link
                 href="/employers-dashboard/post-jobs"
                 className="theme-btn btn-style-five"
               >
                 Publier des offres
+              </Link>
+              <Link
+                href="/"
+                className="theme-btn btn-style-seven"
+              >
+                3rd Button
               </Link>
             </div>
           </div>

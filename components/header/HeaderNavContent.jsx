@@ -42,7 +42,7 @@ const HeaderNavContent = () => {
             : ""
           }`}
         >
-          <Link href="/job-list-v4">Trouver de l'emploi</Link>
+          <Link href="/job-list-v4">Emploi</Link>
         </li>
         {/* End findjobs menu items */}
 
@@ -54,7 +54,7 @@ const HeaderNavContent = () => {
               : ""
           }`}
         >
-          <Link href="/employers-list-v1">Trouver des entreprises</Link>
+          <Link href="/employers-list-v1">Entreprises</Link>
         </li>
         {/* End find enterprises menu items */}
 
@@ -66,7 +66,7 @@ const HeaderNavContent = () => {
               : ""
           }`}
         >
-          <Link href="/candidates-list-v1">Trouver des candidats</Link>
+          <Link href="/candidates-list-v1">Candidats</Link>
         </li>
         {/* End find candidate menu items */}
 
