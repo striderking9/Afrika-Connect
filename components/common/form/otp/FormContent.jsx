@@ -5,9 +5,10 @@ import { useState } from "react";
 import LoginWithSocial from "./LoginWithSocial";
 import { useRouter } from 'next/navigation'
 
+
 const FormContent = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [otp, setOtp] = useState('');
   const router = useRouter()
 
   const handleSubmit = async (event) => {
@@ -15,11 +16,11 @@ const FormContent = () => {
 
     const data = {
       email,
-      password,
+      otp,
     };
 
     try {
-      const response = await fetch('http://167.86.125.178:8083/afrik-connect/api/v1/auth/authenticate', {
+      const response = await fetch('http://167.86.125.178:8083/afrik-connect/api/v1/auth/validate_authenticate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -34,9 +35,9 @@ const FormContent = () => {
 
       // Handle the response data
       if (result.status === 200) {
-        console.log('testtt')
         // Redirect to the OTP page with email and OTP fields
-        router.push(`/otp?email=${encodeURIComponent(email)}`);
+        console.log('OtpConfirm')
+        router.push('/')
 
       } else {
         console.log('Error:', result.message);
@@ -48,7 +49,7 @@ const FormContent = () => {
 
   return (
     <div className="form-inner">
-      <h3>Se connecter</h3>
+      <h3>Entrer votre otp</h3>
 
       {/* <!--Login Form--> */}
       <form method="post" onSubmit={handleSubmit}>
@@ -66,14 +67,14 @@ const FormContent = () => {
         {/* name */}
 
         <div className="form-group">
-          <label>Mot de passe</label>
+          <label>Otp</label>
           <input
-              type="password"
-              name="password"
-              placeholder="Password"
+              type="number"
+              name="otp"
+              placeholder="Entrer votre otp"
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
           />
         </div>
         {/* password */}
@@ -99,7 +100,7 @@ const FormContent = () => {
             type="submit"
             name="log-in"
           >
-            Se connecter
+            Confirmer
           </button>
         </div>
         {/* login */}

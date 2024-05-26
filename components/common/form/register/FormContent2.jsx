@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const FormContent2 = () => {
   return (
     <form method="post" action="add-parcel.html">
@@ -42,8 +44,10 @@ const FormContent2 = () => {
       {/* confirm password */}
 
       <div className="form-group">
-        <button className="theme-btn btn-style-one" type="submit">
-          S'inscrire
+        <button className="theme-btn btn-style-five" type="submit">
+          <Link href="/otp" className="call-modal otp">
+            S'inscrire
+          </Link>
         </button>
       </div>
       {/* login */}

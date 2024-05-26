@@ -174,6 +174,10 @@ export const shopItems = [
         routePath: "/login",
       },
       {
+        name: "Otp",
+        routePath: "/otp",
+      },
+      {
         name: "Register",
         routePath: "/register",
       },
